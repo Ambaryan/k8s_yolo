@@ -1,0 +1,73 @@
+# Task 3
+
+Добавил storage class, теперь все pvc будут "цеплятся" к pv через него. 
+
+$ kubectl get all -n tasks
+```
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/minio-575d987896-fk897      1/1     Running   0          11m
+pod/minio-state-0               1/1     Running   0          27m
+
+NAME                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/minio-app     NodePort    10.109.139.249   <none>        9001:30008/TCP   8m33s
+service/minio-state   ClusterIP   None             <none>        9000/TCP         27m
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/minio      1/1     1            1           11m
+
+NAME                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/minio-575d987896      1         1         1       11m
+
+NAME                           READY   AGE
+statefulset.apps/minio-state   1/1     27m
+```
+
+$ kubectl get sc 
+```
+NAME                 PROVISIONER                    RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+minio-sc             kubernetes.io/no-provisioner   Retain          Immediate           false                  30m
+```
+$ kubectl get pvc -n tasks
+```
+NAME                     STATUS   VOLUME            CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+minio-deployment-claim   Bound    minio-deploy-pv   5Gi        RWO            minio-sc       12m
+minio-minio-state-0      Bound    minio-pv          5Gi        RWO            minio-sc       28m
+```
+
+$ kubectl get pv 
+```
+NAME              CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                          STORAGECLASS      REASON   AGE
+minio-deploy-pv   5Gi        RWO            Recycle          Bound       tasks/minio-deployment-claim   minio-sc                   27m
+minio-pv          5Gi        RWO            Recycle          Bound       tasks/minio-minio-state-0      minio-sc                   30m
+```
+
+### add ingress rule for minio
+
+$ cat ingress.yaml 
+```
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: minio-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: k8s-minio.com
+    http:
+      paths:
+      - backend:
+          serviceName: minio-app
+          servicePort: 9001
+        path: /
+```
+
+$ kubectl get ing -n tasks
+```
+NAME            CLASS    HOSTS           ADDRESS           PORTS   AGE
+minio-ingress   <none>   k8s-minio.com   146.185.195.186   80      19m
+nginx           <none>   host.com        146.185.195.186   80      157m
+nginx-canary    <none>   host.com        146.185.195.186   80      154m
+```
+
+![изображение](https://user-images.githubusercontent.com/28691083/139655071-ec94a110-cd4e-4371-860e-a567ec3c0558.png)
