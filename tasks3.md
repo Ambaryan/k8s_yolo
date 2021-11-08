@@ -71,3 +71,7 @@ nginx-canary    <none>   host.com        146.185.195.186   80      154m
 ```
 
 ![изображение](https://user-images.githubusercontent.com/28691083/139655071-ec94a110-cd4e-4371-860e-a567ec3c0558.png)
+
+---
+
+Data was erased after we delete pods from node with emptyDir
