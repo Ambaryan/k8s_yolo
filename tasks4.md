@@ -66,6 +66,22 @@ role.rbac.authorization.k8s.io/deploy_edit created
 rolebinding.rbac.authorization.k8s.io/deploy_edit created
 ```
 
+
+$ ./create.sh 
+```
+user = sa-namespace-admin
+Generating RSA private key, 2048 bit long modulus (2 primes)
+.+++++
+...+++++
+e is 65537 (0x010001)
+Signature ok
+subject=CN = sa-namespace-admin
+Getting CA Private Key
+User "sa-namespace-admin" set.
+Context "sa-namespace-admin" modified.
+```
+
+
 $ kubectl config get-contexts
 ```
 CURRENT   NAME          CLUSTER    AUTHINFO      NAMESPACE
