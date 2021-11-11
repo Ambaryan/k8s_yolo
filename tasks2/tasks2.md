@@ -41,3 +41,19 @@ nginx-v1
 nginx-v2
 nginx-v1
 ```
+
+$ curl -H "Host: host.com" -H "canary: always"  http://N/D:30093  #ingress nodeport 30093
+```
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+nginx-v2
+```
