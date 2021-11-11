@@ -26,11 +26,18 @@ nginx          <none>   host.com   N/D               80      5m33s
 nginx-canary   <none>   host.com   N/D               80      4m9s
 ```
 
-$ curl -H "Host: host.com" -H "canary: no"  http://N/D:30093     #ingress nodeport 30093
+$ curl -H "Host: host.com" http://N/D:30093     #ingress nodeport 30093
 ```
 nginx-v1
-```
- $ curl -H "Host: host.com" -H "canary: no"  http://N/D:30093     #ingress nodeport 30093
-```
 nginx-v2
+nginx-v1
+nginx-v1
+nginx-v2
+nginx-v2
+nginx-v1
+nginx-v2
+nginx-v2
+nginx-v1
+nginx-v2
+nginx-v1
 ```
