@@ -1,0 +1,38 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: minio-deploy-pv
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 5Gi
+  hostPath:
+    path: /tmp/volume/minio-deploy/
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: minio-sc
+status:
+  phase: Available
+
+
+------
+
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: minio-stfs-pv
+  labels:
+    app: minio-state
+spec:
+  capacity:
+    storage: 5Gi
+  hostPath:
+    path: /tmp/volume/minio-stfs/
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: minio-sc
+status:
+  phase: Available
