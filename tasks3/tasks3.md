@@ -43,24 +43,6 @@ minio-pv          5Gi        RWO            Recycle          Bound       tasks/m
 
 ### add ingress rule for minio
 
-$ cat ingress.yaml 
-```
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: minio-ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-spec:
-  rules:
-  - host: k8s-minio.com
-    http:
-      paths:
-      - backend:
-          serviceName: minio-app
-          servicePort: 9001
-        path: /
-```
 
 $ kubectl get ing -n tasks
 ```
