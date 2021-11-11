@@ -9,7 +9,7 @@ pod/minio-575d987896-fk897      1/1     Running   0          11m
 pod/minio-state-0               1/1     Running   0          27m
 
 NAME                  TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
-service/minio-app     NodePort    10.109.139.249   <none>        9001:30008/TCP   8m33s
+service/minio-app     NodePort    10.109.139.249   <none>        9001:32611/TCP   8m33s
 service/minio-state   ClusterIP   None             <none>        9000/TCP         27m
 
 NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
@@ -51,9 +51,13 @@ minio-ingress   <none>   k8s-minio.com   N/D               80      19m
 nginx           <none>   host.com        N/D               80      157m
 nginx-canary    <none>   host.com        N/D               80      154m
 ```
-
-![изображение](https://user-images.githubusercontent.com/28691083/139655071-ec94a110-cd4e-4371-860e-a567ec3c0558.png)
+---
+### VIA NODEPORT
+![изображение](https://user-images.githubusercontent.com/28691083/141265991-89f5ba30-bd5a-4986-b408-9e0bd06b03e9.png)
 
 ---
+
+### VIA INGRESS
+
 
 Data was erased after we delete pods from node with emptyDir
