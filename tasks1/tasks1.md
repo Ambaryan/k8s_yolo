@@ -1,15 +1,6 @@
 # HOMEWORK
 
-```
-$ kubectl get all -n tasks
-NAME                                    READY   STATUS    RESTARTS   AGE
-pod/nginx-deployment-66b6c48dd5-6wgtk   1/1     Running   0          41s
-pod/nginx-deployment-66b6c48dd5-brjl6   1/1     Running   0          41s
+![изображение](https://user-images.githubusercontent.com/28691083/141249821-b4d3a97c-fa55-42d3-a598-da5a7534aa6a.png)
 
-NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/nginx-deployment   2/2     2            2           41s
-
-NAME                                          DESIRED   CURRENT   READY   AGE
-replicaset.apps/nginx-deployment-66b6c48dd5   2         2         2       41s
-
-```
+As long as there are enough resources on the node, replicaset will create the specified number of pods.
+There are 2 replicas in deploy.yaml. 
