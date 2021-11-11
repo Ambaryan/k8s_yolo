@@ -56,7 +56,14 @@ nginx-canary    <none>   host.com        N/D               80      154m
 ![изображение](https://user-images.githubusercontent.com/28691083/141265991-89f5ba30-bd5a-4986-b408-9e0bd06b03e9.png)
 
 ---
+### VIA INGRESS
 
+```
+$ curl -H "Host: k8s-minio.com"  http://146.185.195.186:30093/login
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied.</Message><BucketName>login</BucketName><Resource>/login</Resource><RequestId>16B67287D897C66E</RequestId><HostId>f7eae6d2-8216-4578-886a-65f864d5d003</HostId></Error>
 
+```
 
+---
 Data was erased after we delete pods from node with emptyDir
