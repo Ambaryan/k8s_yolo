@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: minio-ingress
+  namespace: tasks
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: k8s-minio.com
+    http:
+      paths:
+      - backend:
+          serviceName: minio-app
+          servicePort: 9001
+        path: /
