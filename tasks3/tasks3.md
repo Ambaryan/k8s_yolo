@@ -47,9 +47,9 @@ minio-pv          5Gi        RWO            Recycle          Bound       tasks/m
 $ kubectl get ing -n tasks
 ```
 NAME            CLASS    HOSTS           ADDRESS           PORTS   AGE
-minio-ingress   <none>   k8s-minio.com   146.185.195.186   80      19m
-nginx           <none>   host.com        146.185.195.186   80      157m
-nginx-canary    <none>   host.com        146.185.195.186   80      154m
+minio-ingress   <none>   k8s-minio.com   N/D               80      19m
+nginx           <none>   host.com        N/D               80      157m
+nginx-canary    <none>   host.com        N/D               80      154m
 ```
 
 ![изображение](https://user-images.githubusercontent.com/28691083/139655071-ec94a110-cd4e-4371-860e-a567ec3c0558.png)
