@@ -57,7 +57,6 @@ nginx-canary    <none>   host.com        N/D               80      154m
 
 ---
 
-### VIA INGRESS
 
 
 Data was erased after we delete pods from node with emptyDir
