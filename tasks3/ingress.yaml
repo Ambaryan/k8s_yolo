@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: minio-ingress
@@ -10,7 +10,10 @@ spec:
   - host: k8s-minio.com
     http:
       paths:
-      - backend:
-          serviceName: minio-app
-          servicePort: 9001
-        path: /
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: minio-app
+            port: 
+              number: 9001
