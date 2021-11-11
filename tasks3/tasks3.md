@@ -59,7 +59,7 @@ nginx-canary    <none>   host.com        N/D               80      154m
 ### VIA INGRESS
 
 ```
-$ curl -H "Host: k8s-minio.com"  http://146.185.195.186:30093/login
+$ curl -H "Host: k8s-minio.com"  http://k8s-minio.com:30093/login
 <?xml version="1.0" encoding="UTF-8"?>
 <Error><Code>AccessDenied</Code><Message>Access Denied.</Message><BucketName>login</BucketName><Resource>/login</Resource><RequestId>16B67287D897C66E</RequestId><HostId>f7eae6d2-8216-4578-886a-65f864d5d003</HostId></Error>
 
