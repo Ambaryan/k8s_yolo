@@ -16,4 +16,4 @@ spec:
           service:
             name: minio-state
             port: 
-              number: 9001
+              number: 9000
